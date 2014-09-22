@@ -38,23 +38,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":86,
-                 "y":69
-                }, 
-                {
-                 "gid":1260,
-                 "height":0,
-                 "name":"",
-                 "properties":
-                    {
-                     "sprite":"greencup",
-                     "type":"item"
-                    },
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":114,
-                 "y":207
+                 "x":80,
+                 "y":64
                 }, 
                 {
                  "gid":71,
@@ -140,13 +125,58 @@
                  "properties":
                     {
                      "sprite":"greencup",
-                     "type":"item"
+                     "type":"lightitem"
                     },
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":72,
-                 "y":129
+                 "x":80,
+                 "y":128
+                }, 
+                {
+                 "gid":1260,
+                 "height":0,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"greencup",
+                     "type":"lightitem"
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":80,
+                 "y":208
+                }, 
+                {
+                 "gid":1260,
+                 "height":0,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"greencup",
+                     "type":"lightitem"
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":96,
+                 "y":288
+                }, 
+                {
+                 "gid":1260,
+                 "height":0,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"greencup",
+                     "type":"lightitem"
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":16,
+                 "y":112
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -161,7 +191,7 @@
          "name":"darknessLayer",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":10,
          "x":0,
          "y":0

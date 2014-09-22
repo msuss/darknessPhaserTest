@@ -55,15 +55,9 @@
 </data>
  </layer>
  <objectgroup name="objectsLayer" width="10" height="20">
-  <object gid="1216" x="86" y="69">
+  <object gid="1216" x="80" y="64">
    <properties>
     <property name="sprite" value="bluecup"/>
-    <property name="type" value="item"/>
-   </properties>
-  </object>
-  <object gid="1260" x="114" y="207">
-   <properties>
-    <property name="sprite" value="greencup"/>
     <property name="type" value="item"/>
    </properties>
   </object>
@@ -99,14 +93,32 @@
     <property name="type" value="item"/>
    </properties>
   </object>
-  <object gid="1260" x="72" y="129">
+  <object gid="1260" x="80" y="128">
    <properties>
     <property name="sprite" value="greencup"/>
-    <property name="type" value="item"/>
+    <property name="type" value="lightitem"/>
+   </properties>
+  </object>
+  <object gid="1260" x="80" y="208">
+   <properties>
+    <property name="sprite" value="greencup"/>
+    <property name="type" value="lightitem"/>
+   </properties>
+  </object>
+  <object gid="1260" x="96" y="288">
+   <properties>
+    <property name="sprite" value="greencup"/>
+    <property name="type" value="lightitem"/>
+   </properties>
+  </object>
+  <object gid="1260" x="16" y="112">
+   <properties>
+    <property name="sprite" value="greencup"/>
+    <property name="type" value="lightitem"/>
    </properties>
   </object>
  </objectgroup>
- <layer name="darknessLayer" width="10" height="20">
+ <layer name="darknessLayer" width="10" height="20" visible="0">
   <data encoding="csv">
 95,95,95,95,95,95,95,95,95,95,
 95,95,95,95,95,95,95,95,95,95,

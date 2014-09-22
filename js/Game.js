@@ -9,14 +9,13 @@ TopDownGame.Game.prototype = {
 
     //the first parameter is the tileset name as specified in Tiled, the second is the key to the asset
     this.map.addTilesetImage('tiles', 'gameTiles');
-
-    //create layer
+  //create layer
     this.backgroundlayer = this.map.createLayer('backgroundLayer');
     this.blockedLayer = this.map.createLayer('blockedLayer');
-    this.createItems();
+    this.createDarkItems();
     this.createDoors();   
     this.darknessLayer = this.map.createLayer('darknessLayer');
-
+    this.createLightItems();
     //collision on blockedLayer
     this.map.setCollisionBetween(1, 100000, true, 'blockedLayer');
 
@@ -35,7 +34,7 @@ TopDownGame.Game.prototype = {
     this.cursors = this.game.input.keyboard.createCursorKeys();
 
   },
-  createItems: function() {
+  createDarkItems: function() {
     //create items
     this.items = this.game.add.group();
     this.items.enableBody = true;
@@ -43,6 +42,16 @@ TopDownGame.Game.prototype = {
     result = this.findObjectsByType('item', this.map, 'objectsLayer');
     result.forEach(function(element){
       this.createFromTiledObject(element, this.items);
+    }, this);
+  },
+  createLightItems: function() {
+    //create items
+    this.lightItems = this.game.add.group();
+    this.lightItems.enableBody = true;
+    var item;    
+    result = this.findObjectsByType('lightitem', this.map, 'objectsLayer');
+    result.forEach(function(element){
+      this.createFromTiledObject(element, this.lightItems);
     }, this);
   },
   createDoors: function() {
@@ -83,6 +92,7 @@ TopDownGame.Game.prototype = {
     //collision
     this.game.physics.arcade.collide(this.player, this.blockedLayer);
     this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
+    this.game.physics.arcade.overlap(this.player, this.lightItems, this.collect, null, this);
     this.game.physics.arcade.overlap(this.player, this.doors, this.enterDoor, null, this);
 
     //player movement
