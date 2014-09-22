@@ -13,6 +13,7 @@ TopDownGame.Game.prototype = {
     //create layer
     this.backgroundlayer = this.map.createLayer('backgroundLayer');
     this.blockedLayer = this.map.createLayer('blockedLayer');
+    this.darknessLayer = this.map.createLayer('darknessLayer');
 
     //collision on blockedLayer
     this.map.setCollisionBetween(1, 100000, true, 'blockedLayer');
@@ -100,6 +101,27 @@ TopDownGame.Game.prototype = {
     }
     else if(this.cursors.right.isDown) {
       this.player.body.velocity.x += 50;
+    }
+    if (this.player.body.velocity.getMagnitude()>0){
+      //There's a bug in Phaser's handling here, and the reference 
+      // gets overwritten when getTIles is called again, so need to copy
+      var that = this;
+      var tilesToDarken = this.darknessLayer.getTiles(this.player.x-64, this.player.y -64, 128, 128).slice(0);
+      var tilesToLighten = this.darknessLayer.getTiles(this.player.x-32, this.player.y-32, 64, 64);
+      var needDarkening = tilesToDarken.filter(function(tile){
+        return ((tile.alpha === 0) && (tilesToLighten.indexOf(tile) === -1));
+      });
+      var needLightening = tilesToLighten.filter(function(tile){
+        return tile.alpha!=0;
+        });
+      needLightening.forEach(function(tile){
+          tile.alpha = 0;
+          that.darknessLayer.dirty = true;
+      });
+      needDarkening.forEach(function(tile){
+          tile.alpha = 1;
+          that.darknessLayer.dirty = true;
+      });
     }
   },
   collect: function(player, collectable) {
